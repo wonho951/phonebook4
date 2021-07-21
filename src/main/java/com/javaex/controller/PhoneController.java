@@ -14,6 +14,7 @@ public class PhoneController {
 	public String test() {
 		System.out.println("test");
 	
-		return "/WEB-INF/views/test.jsp";	//test.jsp로 포워드 하라는 뜻.  포워드 되는 파일을 알려줌.
+		return "/WEB-INF/views/test.jsp";	// DispatcherServlet 에게 test.jsp로 포워드 하라는 뜻. 
+											// 포워드 되는 파일을 알려줌.
 	}
 }
