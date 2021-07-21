@@ -10,8 +10,10 @@ public class PhoneController {
 	//메소드 g/s
 	//메소드 - 일반
 	
-	@RequestMapping(value = "/test")	//이름 주는거 action역할
-	public void test() {
+	@RequestMapping(value="/test")	//이름 주는거 action역할
+	public String test() {
 		System.out.println("test");
+	
+		return "/WEB-INF/views/test.jsp";	//test.jsp로 포워드 하라는 뜻.  포워드 되는 파일을 알려줌.
 	}
 }
