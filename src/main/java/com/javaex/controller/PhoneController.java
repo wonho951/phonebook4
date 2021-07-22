@@ -26,17 +26,17 @@ public class PhoneController {
 		System.out.println("[PhoneController]");
 		
 		//Dao사용
-		 PhoneDao phoneDao = new PhoneDao(); 
+		PhoneDao phoneDao = new PhoneDao(); 
 		 
 		 //Dao의 메소드로 데이터 가져오기
 		 List<PersonVo> personList = phoneDao.getPersonList();
 		 
 		 
-		 //model담기 (택배박스 담기)	--> DispatcherServlet(ds)에 전달된다 --> request의 attritube영역에 넣는다.
+		 //그림에서 4번 ModelAndView 에서 model담기 (택배박스 담기)	--> DispatcherServlet(ds)에 전달된다 --> request의 attritube영역에 넣는다.
 		 model.addAttribute("personList", personList);
 		 System.out.println(personList);
 		
-		
+		 //ModelAndView 에서 View 공간
 		return "/WEB-INF/views/list.jsp";	// DispatcherServlet 에게 test.jsp로 포워드 하라는 뜻.
 		
 	}
@@ -49,6 +49,8 @@ public class PhoneController {
 		
 		return "/WEB-INF/views/writeForm.jsp";	// DispatcherServlet 에게 test.jsp로 포워드 하라는 뜻.
 	}
+	
+	
 	
 	//localhost:8088/phonebook3/write?name=최원호&hp=010-2222-2222&company=02-2222-2222
 	//Write
@@ -76,13 +78,19 @@ public class PhoneController {
        //				 --> 필드명이랑 세터랑 이름 맞아야함.
        System.out.println(personVo);
        
-       PhoneDao phoneDao = new PhoneDao();       
-       phoneDao.personInsert(personVo);
        
+       //Dao사용
+       PhoneDao phoneDao = new PhoneDao();     
+       
+       //Dao의 personInsert() 이용해서 데이터 저장
+       int count = phoneDao.personInsert(personVo);	//int count는 사용 안한거임. 사용한다면 뭐 추가됐다거나 그런거 표시할때?
+       
+       
+       //view --> 리다이렉트
        return "redirect:/list";	//리다이렉트 문법  redirect:  이 뒤에 주소써줌
     }
 	
-	
+    
 	//파라미터가 있을때도 있고 없을때도 있고	
 	/*
     @RequestMapping(value="/write", method= {RequestMethod.GET,RequestMethod.POST})
@@ -95,8 +103,30 @@ public class PhoneController {
        System.out.println(personVo);
        return "";
     }*/
+    
+    //삭제
+    @RequestMapping(value = "/delete", method = {RequestMethod.GET, RequestMethod.POST})
+    public String delete() {
+    	System.out.println("삭제");
+    	
+    	//Dao사용
+    	PhoneDao phoneDao = new PhoneDao();
+    	
+    	
+    	return "redirect:/list";
+    }
+    //수정폼
+    
+    //수정
+    
+    
+    
+    
+
 	
     
+    /*************수업때문에 한것.************************************************/
+    //읽기
     //pathVariable test
     @RequestMapping(value = "/board/read/{no}", method = {RequestMethod.GET, RequestMethod.POST})
     public String read(@PathVariable("no") int boardNo) {
