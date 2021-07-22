@@ -16,7 +16,7 @@ public class PhoneController {
 	@RequestMapping(value="/list", method = {RequestMethod.GET, RequestMethod.POST})	//여러개 쓰려면 {}써주기
 	public String list() {
 		System.out.println("[PhoneController]");
-		return "/WEB-INF/views/list.jsp";//jsp 위치 써줌
+		return "/WEB-INF/views/list.jsp";	// DispatcherServlet 에게 test.jsp로 포워드 하라는 뜻.
 		
 	}
 	
@@ -26,21 +26,11 @@ public class PhoneController {
 	public String writeForm() {
 		System.out.println("[PhoneController.writeFrom]");
 		
-		return "/WEB-INF/views/writeForm.jsp";
+		return "/WEB-INF/views/writeForm.jsp";	// DispatcherServlet 에게 test.jsp로 포워드 하라는 뜻.
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//쓰기
 	
 	//테스트
 	@RequestMapping(value="/test")	//이름 주는거 action역할

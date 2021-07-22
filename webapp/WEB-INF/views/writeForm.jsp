@@ -17,10 +17,8 @@
 			이름(name):<input type ="text" name="name" value=""> <br> 
 			핸드폰(hp):<input type ="text" name="hp" value=""> <br>
 			회사(company):<input type ="text" name="company" value=""> <br>
-			
-			<input type ="hidden" name="action" value="insert"> <br>	<!-- insert로 이동하기 위해 hidden으로 둔다. -->
-			
 			<button type = "submit">등록</button>
+			<input type ="hidden" name="action" value="insert"> <br>	<!-- insert로 이동하기 위해 hidden으로 둔다. -->
 		</form>
 </body>
 </html>
