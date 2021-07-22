@@ -13,12 +13,11 @@
 			아래 항목을 기입하고 '등록' 버튼을 클릭하세요.
 		</p>
 		
-		<form action= "/phonebook2/pbc" method="get">
+		<form action= "/phonebook3/write" method="get">
 			이름(name):<input type ="text" name="name" value=""> <br> 
 			핸드폰(hp):<input type ="text" name="hp" value=""> <br>
 			회사(company):<input type ="text" name="company" value=""> <br>
 			<button type = "submit">등록</button>
-			<input type ="hidden" name="action" value="insert"> <br>	<!-- insert로 이동하기 위해 hidden으로 둔다. -->
 		</form>
 </body>
 </html>
