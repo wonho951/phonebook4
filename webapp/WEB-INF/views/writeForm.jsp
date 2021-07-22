@@ -20,5 +20,9 @@
 			<button type = "submit">등록</button>
 			<input type ="hidden" name="action" value="insert"> <br>	<!-- insert로 이동하기 위해 hidden으로 둔다. -->
 		</form>
+		
+		 <br>
+   		<a href="http://localhost:8088/phonebook3/list">리스트 바로가기</a>
+		
 </body>
 </html>

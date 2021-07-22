@@ -37,6 +37,6 @@
 		</table>
 	</c:forEach>
 	
-	<a href="/phonebook3/writeform">추가번호 등록</a>
+	<a href="/phonebook3/writeForm">추가번호 등록</a>
 </body>
 </html>
