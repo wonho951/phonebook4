@@ -5,16 +5,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller	//-->얘도 임포트 해줘야함
+//@RequestMapping(value = "/pb")	//얘로 통일하면 /pb/ ~~해야 주소가됨
 public class PhoneController {
 	//필드
 	//생성자
 	//메소드 g/s
 	//메소드 - 일반
-	@RequestMapping(value="list", method = {RequestMethod.GET, RequestMethod.POST})	//여러개 쓰려면 {}써주기
+	
+	//리스트
+	@RequestMapping(value="/list", method = {RequestMethod.GET, RequestMethod.POST})	//여러개 쓰려면 {}써주기
 	public String list() {
 		System.out.println("[PhoneController]");
-		return "";//jsp 위치 써줌
+		return "/WEB-INF/views/list.jsp";//jsp 위치 써줌
 		
+	}
+	
+		
+	//쓰기폼
+	@RequestMapping(value = "/writeForm", method = {RequestMethod.GET, RequestMethod.POST})
+	public String writeForm() {
+		System.out.println("[PhoneController.writeFrom]");
+		
+		return "/WEB-INF/views/writeForm.jsp";
 	}
 	
 	
@@ -30,12 +42,7 @@ public class PhoneController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
+	//테스트
 	@RequestMapping(value="/test")	//이름 주는거 action역할
 	public String test() {
 		System.out.println("test");
