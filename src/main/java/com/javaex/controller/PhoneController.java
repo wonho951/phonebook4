@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.dao.PhoneDao;
 import com.javaex.vo.PersonVo;
@@ -106,19 +107,55 @@ public class PhoneController {
     
     //삭제
     @RequestMapping(value = "/delete", method = {RequestMethod.GET, RequestMethod.POST})
-    public String delete() {
+    public String delete(@RequestParam("personId") int personId) {
     	System.out.println("삭제");
+    	System.out.println(personId);
+    	//Dao사용
+    	PhoneDao phoneDao = new PhoneDao();
+    	
+    	//Dao의 personDelete() 사용해서 데이터 삭제
+    	int count = phoneDao.personDelete(personId);
+    	
+    	//view --> 리다이렉트
+    	return "redirect:/list";
+    }
+    
+    
+    //수정폼
+    @RequestMapping(value = "/updateForm", method = {RequestMethod.GET, RequestMethod.POST})
+    public String updateForm(Model model, @RequestParam("personId") int personId) {
+    	System.out.println("수정폼");
+    	System.out.println(personId);
     	
     	//Dao사용
     	PhoneDao phoneDao = new PhoneDao();
     	
+    	PersonVo personVo = phoneDao.getPerson(personId);
+    	System.out.println(personVo);
     	
-    	return "redirect:/list";
+    	model.addAttribute("personVo", personVo);
+    	
+    	//view 
+    	return "/WEB-INF/views/updateForm.jsp";
     }
-    //수정폼
+    
     
     //수정
-    
+    @RequestMapping(value = "/update", method = {RequestMethod.GET, RequestMethod.POST} )
+    public String update(@ModelAttribute PersonVo personVo) {
+        System.out.println("수정");
+        System.out.println(personVo);
+        
+        
+        //Dao사용
+        PhoneDao phoneDao = new PhoneDao();     
+        
+        //Dao의 personInsert() 이용해서 데이터 저장
+        phoneDao.personUpdate(personVo);
+        
+        //view --> 리다이렉트
+        return "redirect:/list";
+    }
     
     
     
