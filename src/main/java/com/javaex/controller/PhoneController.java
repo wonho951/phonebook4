@@ -146,7 +146,6 @@ public class PhoneController {
         System.out.println("수정");
         System.out.println(personVo);
         
-        
         //Dao사용
         PhoneDao phoneDao = new PhoneDao();     
         
