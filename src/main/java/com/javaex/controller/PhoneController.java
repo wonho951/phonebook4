@@ -53,7 +53,7 @@ public class PhoneController {
 	
 	
 	
-	//localhost:8088/phonebook3/write?name=최원호&hp=010-2222-2222&company=02-2222-2222
+	//localhost:8088/phonebook4/write?name=최원호&hp=010-2222-2222&company=02-2222-2222
 	//Write
 	//파라미터를 1개씩 받을때
     /*@RequestMapping(value="/write", method= {RequestMethod.GET,RequestMethod.POST})
@@ -169,8 +169,8 @@ public class PhoneController {
     public String read(@PathVariable("no") int boardNo) {
     	System.out.println("pathVariable [read]");
     	
-    	//localhost:8088/phonebook3/board/read/1	이런 형식으로 주소 쓰면됨
-    	//localhost:8088/phonebook3/board/read/2
+    	//localhost:8088/phonebook4/board/read/1	이런 형식으로 주소 쓰면됨
+    	//localhost:8088/phonebook4/board/read/2
     	
     	
     	System.out.println(boardNo);
