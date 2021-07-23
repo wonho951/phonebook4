@@ -2,6 +2,7 @@ package com.javaex.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +18,9 @@ import com.javaex.vo.PersonVo;
 //@RequestMapping(value = "/pb")	//얘로 통일하면 /pb/ ~~해야 주소가됨
 public class PhoneController {
 	//필드
+	@Autowired	//new를 하지 않겠다 너가 알아서해라 라는 의미
+	PhoneDao phoneDao;
+	
 	//생성자
 	//메소드 g/s
 	//메소드 - 일반
@@ -27,7 +31,7 @@ public class PhoneController {
 		System.out.println("[PhoneController]");
 		
 		//Dao사용
-		PhoneDao phoneDao = new PhoneDao(); 
+		//PhoneDao phoneDao = new PhoneDao();  @repository로 dao 올리고 @autowired로 자동으로 대신해주기때문에 안해도 됨.
 		 
 		 //Dao의 메소드로 데이터 가져오기
 		 List<PersonVo> personList = phoneDao.getPersonList();
@@ -81,7 +85,7 @@ public class PhoneController {
        
        
        //Dao사용
-       PhoneDao phoneDao = new PhoneDao();     
+       //PhoneDao phoneDao = new PhoneDao();     
        
        //Dao의 personInsert() 이용해서 데이터 저장
        int count = phoneDao.personInsert(personVo);	//int count는 사용 안한거임. 사용한다면 뭐 추가됐다거나 그런거 표시할때?
@@ -111,7 +115,7 @@ public class PhoneController {
     	System.out.println("삭제");
     	System.out.println(personId);
     	//Dao사용
-    	PhoneDao phoneDao = new PhoneDao();
+    	//PhoneDao phoneDao = new PhoneDao();
     	
     	//Dao의 personDelete() 사용해서 데이터 삭제
     	int count = phoneDao.personDelete(personId);
@@ -129,7 +133,7 @@ public class PhoneController {
     	System.out.println(personId);
     	
     	//Dao사용
-    	PhoneDao phoneDao = new PhoneDao();
+    	//PhoneDao phoneDao = new PhoneDao();
     	
     	PersonVo personVo = phoneDao.getPerson(personId);
     	System.out.println(personVo);
@@ -148,7 +152,7 @@ public class PhoneController {
         System.out.println(personVo);
         
         //Dao사용
-        PhoneDao phoneDao = new PhoneDao();     
+        //PhoneDao phoneDao = new PhoneDao();     
         
         //Dao의 personInsert() 이용해서 데이터 저장
         phoneDao.personUpdate(personVo);
