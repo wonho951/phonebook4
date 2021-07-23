@@ -11,7 +11,7 @@
 
 	<h1>전화번호수정</h1>
 	<p>수정화면 입니다. 아래 항목을 수정하고 "수정"버튼을 클릭하세욤</p>
-	<form action ="/phonebook4/update" method="get">
+	<form action ="${pageContext.request.contextPath }/update" method="get">
        이름(name): <input type="text" name="name" value="${personVo.name }"> <br>
        핸드폰(hp): <input type="text" name="hp" value="${personVo.hp }"> <br>
        회사(company): <input type="text" name="company" value="${personVo.company }"> <br>

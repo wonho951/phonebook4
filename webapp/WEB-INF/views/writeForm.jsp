@@ -13,7 +13,7 @@
 			아래 항목을 기입하고 '등록' 버튼을 클릭하세요.
 		</p>
 		
-		<form action= "/phonebook4/write" method="get">
+		<form action= "${pageContext.request.contextPath }/write" method="get">
 			이름(name):<input type ="text" name="name" value=""> <br> 
 			핸드폰(hp):<input type ="text" name="hp" value=""> <br>
 			회사(company):<input type ="text" name="company" value=""> <br>
@@ -22,7 +22,7 @@
 		</form>
 		
 		 <br>
-   		<a href="http://localhost:8088/phonebook4/list">리스트 바로가기</a>
+   		<a href="${pageContext.request.contextPath }/list">리스트 바로가기</a>
 		
 </body>
 </html>

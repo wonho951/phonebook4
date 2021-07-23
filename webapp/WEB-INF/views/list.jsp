@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<h1>전화번호 리스트</h1>
+	<h1>전화번호 리스트 ${pageContext.request.contextPath }</h1>	<!-- ${pageContext.request.contextPath } path명을 알려주는 명령어 -->
 	<p>입력한 정보 내역입니다.</p>
 
 
@@ -30,13 +30,13 @@
 				<td>${personList.company }</td>
 			</tr>	
 			<tr>
-				<td><a href = "/phonebook4/updateForm?personId=${personList.personId }">수정폼</a></td>
-				<td><a href = "/phonebook4/delete?personId=${personList.personId }">삭제</a></td>
+				<td><a href = "${pageContext.request.contextPath }/updateForm?personId=${personList.personId }">수정폼</a></td>
+				<td><a href = "${pageContext.request.contextPath }/delete?personId=${personList.personId }">삭제</a></td>
 			</tr>
 			<br>
 		</table>
 	</c:forEach>
 	
-	<a href="/phonebook4/writeForm">추가번호 등록</a>
+	<a href="${pageContext.request.contextPath }/writeForm">추가번호 등록</a>
 </body>
 </html>
