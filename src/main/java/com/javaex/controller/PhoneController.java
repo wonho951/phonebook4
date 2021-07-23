@@ -19,7 +19,7 @@ import com.javaex.vo.PersonVo;
 public class PhoneController {
 	//필드
 	@Autowired	//new를 하지 않겠다 너가 알아서해라 라는 의미
-	PhoneDao phoneDao;
+	private PhoneDao phoneDao;
 	
 	//생성자
 	//메소드 g/s
